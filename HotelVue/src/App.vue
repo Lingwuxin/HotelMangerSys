@@ -1,85 +1,67 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
+
 </script>
-
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
-</template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+#hotelsys-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8vw;
+  height: 100vh;
+  background-color: rgba(220, 245, 240, 0.523);
+  display: flex;
+  /* 添加 Flex 布局 */
+  flex-direction: column;
+  /* 设置为纵向排列 */
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
+.nav-item-div {
   text-align: center;
-  margin-top: 2rem;
+  width: 100%;
+  flex: 1;
+  /* 让每个 div 占据相同的大小 */
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.nav-item-div a {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+  width: 100%;
+  text-decoration: none;
+  color:  rgb(114, 154, 118);
 }
 </style>
+<template>
+  <div id="hotelsys-nav" class="bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <router-link class="navbar-brand" to="/">Home</router-link>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="nav-item-div">
+          <router-link to="/register">登记</router-link>
+        </div>
+        <div class="nav-item-div">
+          <router-link to="/room">房间</router-link>
+        </div>
+
+        <div class="nav-item-div">
+          <router-link to="/customer">住客</router-link>
+        </div>
+        <div class="nav-item-div">
+          <router-link to="/reserva">预定</router-link>
+        </div>
+        <div class="nav-item-div">
+          <router-link to="/order">订单</router-link>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="container mt-4">
+    <router-view></router-view>
+  </div>
+</template>
+
