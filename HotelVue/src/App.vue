@@ -51,12 +51,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="nav-item-div">
           <router-link to="/customer">住客</router-link>
         </div>
-        <div class="nav-item-div">
-          <router-link to="/reserva">预定</router-link>
-        </div>
-        <div class="nav-item-div">
-          <router-link to="/order">订单</router-link>
-        </div>
+
       </div>
     </nav>
   </div>
